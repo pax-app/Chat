@@ -1,0 +1,33 @@
+{
+  "name": "pax_chat",
+  "version": "1.0.0",
+  "description": "API Gateway para o Pax, servindo de camada de comunicação entre os microsserviços e o Front-End do sistema.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --inspect=0.0.0.0 src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pax-app/Pax_Gateway.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pax-app/Pax_Gateway/issues"
+  },
+  "homepage": "https://github.com/pax-app/Pax_Gateway#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^1.19.2"
+  }
+}
