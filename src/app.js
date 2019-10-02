@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express';
 
 class App {
   constructor() {
@@ -7,9 +7,9 @@ class App {
     this.routes();
   }
 
-  middlewares() { }
+  middlewares() {}
 
-  routes() { }
+  routes() {}
 }
 
 export default new App().server; // Singleton: todos que importarem usarão da mesma instância
