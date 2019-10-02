@@ -1,4 +1,4 @@
-const express = require("express");
+import express from 'express'
 
 class App {
   constructor() {
@@ -12,4 +12,4 @@ class App {
   routes() { }
 }
 
-module.exports = new App().server;
+export default new App().server; // Singleton: todos que importarem usarão da mesma instância
