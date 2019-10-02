@@ -1,4 +1,5 @@
 import express from 'express';
+import routes from './routes';
 
 class App {
   constructor() {
@@ -7,9 +8,13 @@ class App {
     this.routes();
   }
 
-  middlewares() {}
+  middlewares() {
+    this.server.use(express.json());
+  }
 
-  routes() {}
+  routes() {
+    this.server.use(routes);
+  }
 }
 
 export default new App().server; // Singleton: todos que importarem usarão da mesma instância
