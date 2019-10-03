@@ -1,20 +1,21 @@
+import path from 'path';
+import http from 'http';
 import express from 'express';
-import routes from './routes';
+import socketio from 'socket.io';
 
-class App {
-  constructor() {
-    this.server = express();
-    this.middlewares();
-    this.routes();
-  }
+const app = express();
+const raw_server = http.createServer(app);
+const io = socketio(raw_server);
 
-  middlewares() {
-    this.server.use(express.json());
-  }
+const port = process.env.PORT || 3001;
+const publicDir = path.join(__dirname, '../public');
 
-  routes() {
-    this.server.use(routes);
-  }
-}
+app.use(express.static(publicDir));
 
-export default new App().server; // Singleton: todos que importarem usarão da mesma instância
+io.on('connection', socket => {
+  console.log(`New connection ${socket.id}`);
+});
+
+raw_server.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
+});
