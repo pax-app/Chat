@@ -15,6 +15,9 @@
   <input id="input">
   <script>
     const socket = io('http://localhost:3001')
+    socket.on('send-message', message => {
+      console.log(message)
+    })
   </script>
 </body>
 

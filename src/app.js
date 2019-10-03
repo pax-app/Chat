@@ -14,6 +14,7 @@ app.use(express.static(publicDir));
 
 io.on('connection', socket => {
   console.log(`New connection ${socket.id}`);
+  socket.emit('send-message', { message: 'lucas é mongol' });
 });
 
 raw_server.listen(port, () => {
