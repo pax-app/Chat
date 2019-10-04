@@ -11,14 +11,12 @@
 </head>
 
 <body>
+  <form>
+    <input id="input">
+    <button id="btn-increment">+1</button>
+  </form>
 
-  <input id="input">
-  <script>
-    const socket = io('http://localhost:3001')
-    socket.on('send-message', message => {
-      console.log(message)
-    })
-  </script>
+  <script src="js/client_socket.js"></script>
 </body>
 
 </html>
