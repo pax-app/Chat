@@ -1,12 +1,15 @@
 const socket = io('http://localhost:3001');
 
-socket.on('send-message', message => {
+socket.on('message', message => {
   console.log(message);
 });
 
-const btn_increment = document.getElementById('btn-increment');
+const form = document.getElementById('form');
+const btn_send = document.getElementById('btn-send');
+const msg_input = document.getElementById('msg-input');
 
-btn_increment.addEventListener('click', event => {
-  event.preventDefault();
-  socket.emit('increment_counter');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  socket.emit('text-message', msg_input.value);
+  msg_input.value = '';
 });

@@ -12,15 +12,15 @@ const publicDir = path.join(__dirname, '../public');
 
 app.use(express.static(publicDir));
 
-let counter = 0;
-
 io.on('connection', socket => {
-  console.log(`Connection [${socket.id}] counter is : ${counter}`);
+  console.log(`New user: ${socket.id}`);
+  socket.emit('message', `Welcome ${socket.id}`);
 
-  socket.on('increment_counter', () => {
-    counter += 1;
-    console.log(`Connection [${socket.id}] counter is : ${counter}`);
+  socket.on('text-message', message => {
+    io.emit('message', `${socket.id}: ${message}`);
   });
 });
 
-raw_server.listen(port, () => console.log(`Server is up on port ${port}`));
+raw_server.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
+});
