@@ -5,8 +5,6 @@ const msg_input = document.getElementById('msg-input');
 const room_1 = document.getElementById('room-1');
 const room_2 = document.getElementById('room-2');
 
-const selected_room = 0;
-
 const socket = io('localhost:3001');
 
 socket.on('message', message => {
