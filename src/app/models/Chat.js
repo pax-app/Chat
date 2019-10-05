@@ -1,17 +1,8 @@
 import Sequelize, { Model } from 'sequelize';
-
+import ChatSchema from '../schemas/Chat';
 class Chat extends Model {
   static init(sequelize) {
-    super.init(
-      {
-        user_id: Sequelize.INTEGER,
-        provider_id: Sequelize.INTEGER,
-        chat_id: Sequelize.INTEGER,
-      },
-      {
-        sequelize,
-      }
-    );
+    super.init(ChatSchema.attributes, { ...ChatSchema.options, sequelize });
     return this;
   }
 }
