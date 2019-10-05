@@ -7,6 +7,8 @@ const app = express();
 const raw_server = http.createServer(app);
 const io = socketio(raw_server);
 
+import './database'
+
 const port = process.env.PORT || 3001;
 const publicDir = path.join(__dirname, '../public');
 

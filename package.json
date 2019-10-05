@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/pax-app/Pax_Gateway#readme",
   "dependencies": {
+    "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "mysql2": "^1.7.0",
     "sequelize": "^5.19.3",
