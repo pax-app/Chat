@@ -13,14 +13,21 @@ const publicDir = path.join(__dirname, '../public');
 app.use(express.static(publicDir));
 
 io.on('connection', socket => {
-  console.log(`New user: ${socket.id}`);
-  socket.emit('message', `Welcome ${socket.id}`);
+  let user_room = -1;
+
+  socket.on('join', room => {
+    socket.join(room);
+    user_room = room;
+    console.log(user_room);
+  });
+
+  // socket.broadcast.emit('message', `The user ${socket.id} entered`);
 
   socket.on('text-message', message => {
-    io.emit('message', `${socket.id}: ${message}`);
+    console.log(message, user_room);
+
+    io.to(user_room).emit('message', `${socket.id}: ${message}`);
   });
 });
 
-raw_server.listen(port, () => {
-  console.log(`Server is up on port ${port}`);
-});
+raw_server.listen(port, () => console.log(`Server running at port ${port}`));
