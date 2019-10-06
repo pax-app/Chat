@@ -19,11 +19,11 @@ export default {
   username: 'rogeriojunior',
   password: '03023021',
   dialectOptions: {
-    useUTC: false,
     dateStrings: true,
     typeCast: true,
   },
   timezone: '-03:00',
+  logging: process.env.NODE_ENV === 'development' ? true : false,
 };
 
 // module.exports = {

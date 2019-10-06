@@ -28,8 +28,10 @@ sockets(io);
 
 app.use(Sentry.Handlers.errorHandler());
 
+const node_env = process.env.NODE_ENV || 'development';
+
 app.use(async (error, req, res, next) => {
-  if (process.env.NODE_ENV === 'development') {
+  if (node_env === 'development') {
     const errors = await new Youch(error, req).toJSON();
     return res.status(500).json(errors);
   }
