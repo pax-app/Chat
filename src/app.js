@@ -13,6 +13,7 @@ const io = socketio(raw_server);
 const publicDir = path.join(__dirname, '../public');
 app.use(express.static(publicDir));
 
+app.use(express.json());
 app.use(routes);
 
 io.on('connection', socket => {

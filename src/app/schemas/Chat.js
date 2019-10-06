@@ -7,17 +7,17 @@ export default {
     timestamps: false,
   },
   attributes: {
-    user_id: {
+    chat_id: {
       type: INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    provider_id: {
+    user_id: {
       type: INTEGER,
       allowNull: false,
     },
-    chat_id: {
+    provider_id: {
       type: INTEGER,
       allowNull: false,
     },
