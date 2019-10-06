@@ -1,17 +1,25 @@
 require('dotenv/config');
 
 export default {
+  // dialect: 'mysql',
+  // host: process.env.DB_STRING,
+  // username: process.env.DB_USER,
+  // password: process.env.DB_PASS,
+  // database: process.env.DB_NAME,
+  // define: {
+  //   timestamps: true,
+  //   underscored: true,
+  //   underscoredAll: true,
+  // },
   dialect: 'mysql',
-  host: process.env.DB_STRING,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-  define: {
-    timestamps: true,
-    underscored: true,
-    underscoredAll: true,
-  },
+  port: 3306,
+  server: 'localhost',
+  name: 'Pax',
+  database: 'dbPax',
+  username: 'rogeriojunior',
+  password: '03023021',
 };
+
 // module.exports = {
 //   dialect: 'mysql',
 //   host: process.env.DB_HOST,
