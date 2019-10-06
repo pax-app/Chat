@@ -3,7 +3,7 @@ import http from 'http';
 import express from 'express';
 import socketio from 'socket.io';
 import routes from './routes';
-
+import sockets from './sockets';
 import './database';
 
 const app = express();
@@ -15,19 +15,7 @@ app.use(express.static(publicDir));
 
 app.use(express.json());
 app.use(routes);
-
-io.on('connection', socket => {
-  let user_room = -1;
-
-  socket.on('join', room => {
-    socket.join(room);
-    user_room = room;
-  });
-
-  socket.on('text-message', message => {
-    io.to(user_room).emit('message', `${socket.id}: ${message}`);
-  });
-});
+sockets(io);
 
 const port = process.env.PORT || 3001;
 raw_server.listen(port, () => console.log(`Server running at port ${port}`));
