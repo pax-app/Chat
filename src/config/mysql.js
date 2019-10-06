@@ -11,7 +11,7 @@ export default {
     underscored: true,
     underscoredAll: true,
   },
-}
+};
 // module.exports = {
 //   dialect: 'mysql',
 //   host: process.env.DB_HOST,
@@ -34,7 +34,6 @@ export default {
 //     ssl: process.env.SSL_DB
 //   }
 // })
-
 
 // var sequelize = new Sequelize({
 //   dialect: 'mssql',
