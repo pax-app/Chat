@@ -20,6 +20,10 @@ room_2.addEventListener('click', () => {
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  socket.emit('text-message', msg_input.value);
+  socket.emit('text-message', {
+    chat_id: 4,
+    text: msg_input.value,
+    sender: 'U',
+  });
   msg_input.value = '';
 });
