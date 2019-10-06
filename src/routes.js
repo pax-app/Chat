@@ -6,6 +6,6 @@ const routes = new Router();
 
 routes.get('/chats', ChatController.index);
 routes.post('/chats', ChatController.create);
-routes.delete('/chats', ChatController.destroy);
+routes.delete('/chats/:chat_id', ChatController.destroy);
 
 export default routes;

@@ -28,8 +28,15 @@ class ChatController {
       provider,
     });
   }
+
   async destroy(req, res) {
-    console.log('oi');
+    const { chat_id } = req.params;
+
+    const chat = await Chat.findByPk(chat_id);
+
+    await Chat.destroy({ where: { chat_id } });
+
+    return res.json(chat);
   }
 }
 
