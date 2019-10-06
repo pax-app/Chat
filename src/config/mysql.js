@@ -15,7 +15,7 @@ export default {
   port: 3306,
   server: 'localhost',
   name: 'Pax',
-  database: 'dbPax',
+  database: 'PaxDB',
   username: 'rogeriojunior',
   password: '03023021',
 };

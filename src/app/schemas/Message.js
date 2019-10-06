@@ -1,4 +1,4 @@
-import { INTEGER, STRING, DATE } from 'sequelize';
+import { INTEGER, STRING, DATE, ENUM } from 'sequelize';
 
 export default {
   options: {
@@ -12,6 +12,7 @@ export default {
       references: {
         model: 'CHAT',
         key: 'chat_id',
+        onDelete: 'cascade'
       },
     },
     message_id: {
@@ -20,8 +21,9 @@ export default {
       primaryKey: true,
       autoIncrement: true,
     },
-    sender_id: {
-      type: INTEGER(11),
+    sender: {
+      type: ENUM,
+      values: ['P', 'U'],
       allowNull: false,
     },
     date_time_sent: {

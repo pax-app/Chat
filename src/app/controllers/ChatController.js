@@ -1,5 +1,4 @@
 import Chat from '../models/Chat';
-import express from 'express';
 
 class ChatController {
   async index(req, res) {
