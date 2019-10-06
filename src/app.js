@@ -1,7 +1,9 @@
 import path from 'path';
 import http from 'http';
+import Youch from 'youch';
 import express from 'express';
 import socketio from 'socket.io';
+import 'express-async-errors';
 
 import * as Sentry from '@sentry/node';
 import sentryConfig from './config/sentry';
@@ -25,6 +27,14 @@ app.use(routes);
 sockets(io);
 
 app.use(Sentry.Handlers.errorHandler());
+
+app.use(async (error, req, res, next) => {
+  if (process.env.NODE_ENV === 'development') {
+    const errors = await new Youch(error, req).toJSON();
+    return res.status(500).json(errors);
+  }
+  return res.status(500).json({ error: 'Internal server error' });
+});
 
 const port = process.env.PORT || 3001;
 raw_server.listen(port, () => console.log(`Server running at port ${port}`));
