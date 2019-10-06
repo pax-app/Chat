@@ -1,5 +1,7 @@
 import ChatController from './app/controllers/ChatController';
 import MessageController from './app/controllers/MessageController';
+import { format } from 'date-fns';
+
 const fetch = require('node-fetch');
 
 export default function(io) {
@@ -12,10 +14,7 @@ export default function(io) {
     });
 
     socket.on('text-message', async msg => {
-      const date = new Date()
-        .toISOString()
-        .slice(0, 19)
-        .replace('T', ' ');
+      const date = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
 
       const message = await fetch('http://localhost:3001/messages', {
         method: 'POST',
