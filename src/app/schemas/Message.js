@@ -12,7 +12,7 @@ export default {
       references: {
         model: 'CHAT',
         key: 'chat_id',
-        onDelete: 'cascade'
+        onDelete: 'cascade',
       },
     },
     message_id: {

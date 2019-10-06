@@ -16,7 +16,7 @@ export default function(io) {
     socket.on('text-message', async msg => {
       const date = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
 
-      const message = await fetch('http://localhost:3001/messages', {
+      const message = fetch('http://localhost:3001/messages', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -28,9 +28,12 @@ export default function(io) {
           text_message: msg.text,
           chat_id: msg.chat_id,
         }),
-      });
-
-      io.to(user_room).emit('message', `${socket.id}: ${message.json()}`);
+      })
+        .then(res => res.json())
+        .then(msg => {
+          console.log(msg);
+          io.to(user_room).emit('message', msg.text_message);
+        });
     });
   });
 }

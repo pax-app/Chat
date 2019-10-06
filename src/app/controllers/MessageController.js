@@ -20,8 +20,9 @@ class MessageController {
     });
 
     return res.json({
+      message_id: message.message_id,
       sender: message.sender,
-      date_time_sent: message.date_time_sent,
+      date_time_sent: date_time_sent,
       text_message: message.text_message,
       chat_id: message.chat_id,
     });

@@ -18,6 +18,12 @@ export default {
   database: 'PaxDB',
   username: 'rogeriojunior',
   password: '03023021',
+  dialectOptions: {
+    useUTC: false,
+    dateStrings: true,
+    typeCast: true,
+  },
+  timezone: '-03:00',
 };
 
 // module.exports = {
