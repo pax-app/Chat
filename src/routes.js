@@ -8,4 +8,7 @@ routes.get('/chats', ChatController.index);
 routes.post('/chats', ChatController.create);
 routes.delete('/chats/:chat_id', ChatController.destroy);
 
+routes.get('/messages', MessageController.index);
+routes.post('/messages', MessageController.create);
+
 export default routes;
