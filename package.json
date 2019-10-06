@@ -27,7 +27,8 @@
     "mysql2": "^1.7.0",
     "node-fetch": "^2.6.0",
     "sequelize": "^5.19.3",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "eslint": "^6.5.1",
