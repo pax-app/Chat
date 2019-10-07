@@ -28,11 +28,11 @@ class MessageController {
     return res.json({
       message_id: message.message_id,
       sender: message.sender,
-      date_time_sent: date_time_sent,
+      date_time_sent,
       text_message: message.text_message,
       chat_id: message.chat_id,
     });
   }
 }
 
-export default new MessageController();
+export default new MessageController(); // Singleton

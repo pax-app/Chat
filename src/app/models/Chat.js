@@ -1,4 +1,4 @@
-import Sequelize, { Model } from 'sequelize';
+import { Model } from 'sequelize';
 import ChatSchema from '../schemas/Chat';
 
 class Chat extends Model {

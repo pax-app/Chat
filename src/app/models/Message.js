@@ -1,4 +1,4 @@
-import Sequelize, { Model } from 'sequelize';
+import { Model } from 'sequelize';
 import MessageSchema from '../schemas/Message';
 
 class Message extends Model {

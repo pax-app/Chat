@@ -1,5 +1,3 @@
-import ChatController from './app/controllers/ChatController';
-import MessageController from './app/controllers/MessageController';
 import { format } from 'date-fns';
 
 const fetch = require('node-fetch');
@@ -16,7 +14,7 @@ export default function(io) {
     socket.on('text-message', async msg => {
       const date = format(new Date(), 'yyyy-MM-dd hh:mm:ss');
 
-      const message = fetch('http://localhost:3001/messages', {
+      fetch('http://localhost:3001/messages', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -30,9 +28,7 @@ export default function(io) {
         }),
       })
         .then(res => res.json())
-        .then(msg => {
-          io.to(user_room).emit('message', msg.text_message);
-        });
+        .then(data => io.to(user_room).emit('message', data.text_message));
     });
   });
 }

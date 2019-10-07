@@ -25,7 +25,6 @@ app.use(express.static(publicDir));
 app.use(express.json());
 app.use(routes);
 sockets(io);
-
 app.use(Sentry.Handlers.errorHandler());
 
 const node_env = process.env.NODE_ENV || 'development';

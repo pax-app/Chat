@@ -39,4 +39,4 @@ class ChatController {
   }
 }
 
-export default new ChatController();
+export default new ChatController(); // Singleton
