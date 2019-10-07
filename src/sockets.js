@@ -31,7 +31,6 @@ export default function(io) {
       })
         .then(res => res.json())
         .then(msg => {
-          console.log(msg);
           io.to(user_room).emit('message', msg.text_message);
         });
     });
