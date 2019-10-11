@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js",
+    "dev": "nodemon src/app.js",
     "build": "sucrase src -d ./dist --transforms imports",
     "start": "node dist/server.js"
   },
@@ -21,7 +21,17 @@
   },
   "homepage": "https://github.com/pax-app/Pax_Gateway#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "@sentry/node": "^5.6.2",
+    "date-fns": "^2.4.1",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "mysql2": "^1.7.0",
+    "node-fetch": "^2.6.0",
+    "sequelize": "^5.19.3",
+    "socket.io": "^2.3.0",
+    "youch": "^2.0.10",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "eslint": "^6.5.1",

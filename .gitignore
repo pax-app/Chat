@@ -62,3 +62,6 @@ typings/
 
 # Folder with nodejs code built by sucrase
 dist
+
+#vscode
+.vscode
