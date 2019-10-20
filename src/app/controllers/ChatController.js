@@ -2,7 +2,7 @@ import Chat from '../models/Chat';
 
 class ChatController {
   async index(req, res) {
-    const { user_id, provider_id } = req.body;
+    const { user_id, provider_id } = req.params;
 
     if (user_id && provider_id)
       return res.status(400).json({ error: 'Only one param required' });
@@ -18,7 +18,7 @@ class ChatController {
   }
 
   async create(req, res) {
-    const { user_id, provider_id } = req.body;
+    const { user_id, provider_id } = req.params;
 
     const chat = await Chat.create({ user_id, provider_id });
     return res.json({
