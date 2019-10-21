@@ -2,9 +2,8 @@ import Sequelize from 'sequelize';
 import SequelizeConfig from '../config/mysql';
 
 import Chat from '../app/models/Chat';
-import Message from '../app/models/Message';
 
-const models = [Chat, Message];
+const models = [Chat];
 class Database {
   constructor() {
     this.init();

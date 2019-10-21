@@ -7,7 +7,7 @@ export default async (req, res, next) => {
       provider_id: yup.number().notRequired(),
     });
 
-    await schema.validate(req.body, { abortEarly: false });
+    await schema.validate(req.query, { abortEarly: false });
     return next();
   } catch (error) {
     return res

@@ -2,7 +2,7 @@ import Chat from '../models/Chat';
 
 class ChatController {
   async index(req, res) {
-    const { user_id, provider_id } = req.params;
+    const { user_id, provider_id } = req.query;
 
     if (user_id && provider_id)
       return res.status(400).json({ error: 'Only one param required' });
@@ -18,7 +18,7 @@ class ChatController {
   }
 
   async create(req, res) {
-    const { user_id, provider_id } = req.params;
+    const { user_id, provider_id } = req.body;
 
     const chat = await Chat.create({ user_id, provider_id });
     return res.json({
@@ -29,7 +29,7 @@ class ChatController {
   }
 
   async destroy(req, res) {
-    const { chat_id } = req.params;
+    const { chat_id } = req.query;
 
     const chat = await Chat.findByPk(chat_id);
     if (!chat) return res.status(400).json({ error: 'Chat does not exists' });

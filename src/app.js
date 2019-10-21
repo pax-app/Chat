@@ -28,4 +28,4 @@ app.use(async (error, req, res, next) => {
 });
 
 const port = process.env.PORT || 3001;
-app.listen(port, () => console.log(`Server running at port ${port}`));
+app.listen(port);
