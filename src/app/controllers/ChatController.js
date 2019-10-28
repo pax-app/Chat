@@ -21,11 +21,17 @@ class ChatController {
     const { user_id, provider_id } = req.body;
 
     const chat = await Chat.create({ user_id, provider_id });
-    return res.json({
-      chat_id: chat.chat_id,
-      user: chat.user_id,
-      provider: chat.provider_id,
-    });
+    return res.json(chat);
+  }
+
+  async update(req, res) {
+    const { chat_id, address_id } = req.body;
+
+    const chat = await Chat.update(
+      { user_address: address_id },
+      { where: { chat_id } }
+    );
+    return res.json({ status: [...chat] == 1 ? 'updated' : 'untouched' });
   }
 
   async destroy(req, res) {
