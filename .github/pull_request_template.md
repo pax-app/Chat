@@ -4,7 +4,7 @@ Breve descrição das atividades realizadas para conclusão da issue e outros po
 # Issue Relacionada
 
 <!---Linkar todas as issues envolvidas no PR seguindo a estrutura resolve #1, pois quando o PR é aceito todas as issues são fechadas--->
-resolve #
+resolve pax-app/Wiki#
 
 # Tipo de Mudanças
 
