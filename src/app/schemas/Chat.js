@@ -21,5 +21,9 @@ export default {
       type: INTEGER,
       allowNull: false,
     },
+    user_address: {
+      type: INTEGER,
+      allowNull: false,
+    },
   },
 };
