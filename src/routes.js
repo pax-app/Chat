@@ -16,6 +16,6 @@ routes.get('/chats', validateChatList, ChatController.list);
 routes.post('/chats', validateChatStore, ChatController.create);
 routes.delete('/chats', ChatController.destroy);
 
-routes.post('/chat_update', validateAddressUpdate, AddressController.update);
+routes.patch('/chat_update', validateAddressUpdate, AddressController.update);
 
 export default routes;
