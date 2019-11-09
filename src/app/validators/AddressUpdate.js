@@ -3,12 +3,11 @@ import * as yup from 'yup';
 export default async (req, res, next) => {
   try {
     const schema = yup.object().shape({
-      type: yup
-        .string()
-        .oneOf(['user', 'provider'])
-        .required(),
-      id: yup.number().required(),
+      chat_id: yup.number().required(),
+      address_id: yup.number().required(),
     });
+
+    console.log(req.params);
 
     await schema.validate(req.params, { abortEarly: false });
     return next();
