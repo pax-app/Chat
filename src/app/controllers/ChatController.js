@@ -2,7 +2,7 @@ import Chat from '../models/Chat';
 
 class ChatController {
   async index(req, res) {
-    const { chat_id } = req.query;
+    const { chat_id } = req.params;
 
     const chat = await Chat.findAll({
       where: { chat_id },
@@ -15,13 +15,15 @@ class ChatController {
   }
 
   async list(req, res) {
-    const { user_id, provider_id } = req.query;
+    const { type } = req.params;
 
-    if (user_id && provider_id)
-      return res.status(400).json({ error: 'Only one param required' });
+    console.log(req.params);
+
+    const provider_id = type === 'provider' ? req.params.id : null;
+    const user_id = type === 'user' ? req.params.id : null;
 
     const chats = await Chat.findAll({
-      where: user_id ? { user_id } : { provider_id },
+      where: type == 'user' ? { user_id } : { provider_id },
     });
 
     if (!chats.length)

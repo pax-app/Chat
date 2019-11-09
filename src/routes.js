@@ -11,11 +11,15 @@ import validateAddressUpdate from './app/validators/AddressUpdate';
 
 const routes = new Router();
 
-routes.get('/chat', validateChatIndex, ChatController.index);
-routes.get('/chats', validateChatList, ChatController.list);
+routes.get('/chat/:chat_id', validateChatIndex, ChatController.index);
+routes.get('/chats/:type/:id/', validateChatList, ChatController.list);
 routes.post('/chats', validateChatStore, ChatController.create);
 routes.delete('/chats', ChatController.destroy);
 
-routes.patch('/chat_update', validateAddressUpdate, AddressController.update);
+routes.patch(
+  '/chat_address_update/:chat_id/:address_id',
+  validateAddressUpdate,
+  AddressController.update
+);
 
 export default routes;

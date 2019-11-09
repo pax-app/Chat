@@ -6,7 +6,7 @@ export default async (req, res, next) => {
       chat_id: yup.number().required(),
     });
 
-    await schema.validate(req.query, { abortEarly: false });
+    await schema.validate(req.params, { abortEarly: false });
     return next();
   } catch (error) {
     return res

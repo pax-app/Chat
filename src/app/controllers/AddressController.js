@@ -2,7 +2,7 @@ import Chat from '../models/Chat';
 
 class AddressController {
   async update(req, res) {
-    const { chat_id, address_id } = req.body;
+    const { chat_id, address_id } = req.params;
 
     const chat = await Chat.update(
       { user_address: address_id },
