@@ -1,0 +1,23 @@
+sudo: required
+language: python
+python: 3.8
+services:
+  - docker
+
+before_install:
+  # install heroku CLI
+  - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+  # login to docker registries on heroku
+  - heroku container:login
+
+script:
+  # building docker image
+  - heroku container:push web
+
+deploy:
+  provider: script
+  script:
+    # releasing image
+    heroku container:release web --app $HEROKU_APPNAME
+  on:
+    branch: devel
