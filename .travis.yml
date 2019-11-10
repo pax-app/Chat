@@ -12,7 +12,7 @@ before_install:
 
 script:
   # building docker image
-  - heroku container:push web
+  - heroku container:push web --app $HEROKU_APPNAME
 
 deploy:
   provider: script
