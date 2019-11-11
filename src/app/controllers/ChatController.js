@@ -4,11 +4,11 @@ class ChatController {
   async index(req, res) {
     const { chat_id } = req.params;
 
-    const chat = await Chat.findAll({
-      where: { chat_id },
-    });
+    const chat = await Chat.findByPk(chat_id);
 
-    if (!chat.length)
+    console.log(chat);
+
+    if (!chat)
       return res.status(400).json({ error: 'Key provided not exists' });
 
     return res.json(chat);

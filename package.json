@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/pax-app/Pax_Gateway#readme",
   "dependencies": {
-    "@sentry/node": "^5.6.2",
+    "@sentry/node": "^5.7.1",
     "date-fns": "^2.4.1",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
