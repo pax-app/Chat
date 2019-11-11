@@ -1,4 +1,5 @@
 import Chat from '../models/Chat';
+import { subHours } from 'date-fns';
 
 class ChatController {
   async index(req, res) {
@@ -50,7 +51,7 @@ class ChatController {
   }
 
   async hour(req, res) {
-    const time = new Date().getTime();
+    const time = subHours(new Date().getTime(), 1);
 
     return res.json({ time });
   }
