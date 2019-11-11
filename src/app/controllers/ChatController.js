@@ -48,6 +48,12 @@ class ChatController {
     await Chat.destroy({ where: { chat_id } });
     return res.json(chat);
   }
+
+  async hour(req, res) {
+    const time = new Date().getTime();
+
+    return res.json({ time });
+  }
 }
 
 export default new ChatController(); // Singleton

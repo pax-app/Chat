@@ -13,6 +13,7 @@ const routes = new Router();
 
 routes.get('/chat/:chat_id', validateChatIndex, ChatController.index);
 routes.get('/chats/:type/:id/', validateChatList, ChatController.list);
+routes.get('/hour', ChatController.hour);
 routes.post('/chats', validateChatStore, ChatController.create);
 routes.delete('/chats', ChatController.destroy);
 
