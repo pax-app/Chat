@@ -51,7 +51,7 @@ class ChatController {
   }
 
   async hour(req, res) {
-    const time = subHours(new Date().getTime(), 1);
+    const time = subHours(new Date(), 2).getTime();
 
     return res.json({ time });
   }
