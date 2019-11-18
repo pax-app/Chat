@@ -23,7 +23,7 @@ export default {
     },
     user_address: {
       type: INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
   },
 };
