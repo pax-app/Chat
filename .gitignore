@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# Folder with nodejs code built by sucrase
+dist
+
+#vscode
+.vscode

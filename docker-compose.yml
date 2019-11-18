@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
   chat-service:
@@ -9,4 +9,4 @@ services:
     ports:
       - 3001:3001
       - 9229:9229
-    command: npm start
+    command: /bin/sh -c "npm install && npm audit fix && npm run-script build && npm start"
